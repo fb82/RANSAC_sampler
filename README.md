@@ -2,9 +2,9 @@
 
 O(k^2) implementation faster than the base O(n) when k<<n as in case of RANSAC model selection.
 
-note: returned samples are ordered with the exception of the last element
+_note: returned samples are ordered with the exception of the last element_
 
--
+
 RANSAC_sampler.py base test output:
 ```
 n=8000, k=8, m=500
