@@ -1,4 +1,4 @@
-* Selection of m samples of k elements with no repetition from n indexes *
+# Selection of m samples of k elements with no repetition from n indexes
 
 O(k^2) implementation faster than the base O(n) when k<<n as in case of RANSAC model selection.
 note: returned samples are ordered with the exception of the last element
