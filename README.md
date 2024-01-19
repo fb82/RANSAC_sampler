@@ -5,7 +5,7 @@ O(k^2) implementation faster than the base O(n) when k<<n as in case of RANSAC m
 _note: returned samples are ordered with the exception of the last element_
 
 
-RANSAC_sampler.py base test output:
+test output:
 ```
 n=8000, k=8, m=500
 The O(k^2) numpy implementation - Elapsed = 0.00021175948940977757 s
