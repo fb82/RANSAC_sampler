@@ -1,11 +1,11 @@
-# Selection of m samples of k elements with no repetitions from n indexes
+# Selection of $m$ samples of $k$ random elements with no repetitions from a population of $n$
 
-O(k^2) implementation, faster than the base O(n) when k<<n, as in the case of RANSAC model selection.
+This is a $O(k^2)$ implementation, faster than the base $O(n)$ when $k<<n$, as in the case of RANSAC model selection. Can be used with Pytorch batches.
 
-_note: returned samples are ordered with the exception of the last element_
+_Note: returned samples are ordered with the exception of the last element._
 
 
-test output:
+Output example (just run `RANSAC_sampler.py `):
 ```
 n=8000, k=8, m=500
 The O(k^2) numpy implementation - Elapsed = 0.00021175948940977757 s
