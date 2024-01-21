@@ -1,6 +1,6 @@
 # Selection of $m$ samples of $k$ random elements with no repetitions from a population of $n$
 
-This is a $O(k^2)$ implementation, faster than the base $O(n)$ when $k<<n$, as in the case of RANSAC model selection. Can be used with Pytorch batches.
+This is a $O(k^2)$ implementation, faster than the base $O(n)$ when $k$ $<<$ $n$, as in the case of RANSAC model selection. Can be used with Pytorch batches.
 
 _Note: returned samples are ordered with the exception of the last element._
 
