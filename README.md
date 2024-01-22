@@ -23,7 +23,7 @@ tensor([[ 5, 13, 20,  3],
         [ 0, 13, 17,  3],
         [ 7, 16, 17,  5]], device='cuda:0')
 
-***Running times***
+*** Running times ***
 n=8000, k=8, m=500
 - Base O(n) numpy implementation - Elapsed = 0.047170400619506836 s
 - This O(k^2) numpy implementation - Elapsed = 0.00021838168708645568 s

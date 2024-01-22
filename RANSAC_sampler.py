@@ -52,7 +52,7 @@ if __name__ == '__main__':
     print("\n-- Pytorch --")
     print(sampler_torch(n,k,m) )
 
-    print("\n***Running times***")
+    print("\n*** Running times ***")
     # --------------------------------------------------
     n = 8000 # number of objects
     k = 8    # RANSAC common k values are 3, 4, 5, 7, 8
