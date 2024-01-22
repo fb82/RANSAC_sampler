@@ -35,49 +35,62 @@ def sampler_torch(n, k, m):
 
 if __name__ == '__main__':
 
-    # number of objects
-    n = 8000
-    # RANSAC common k values are 3, 4, 7, 8
-    k = 8
-    # how many "batch" permutation to return 
-    m = 500    
-    # iteration to test    
-    it = 50    
+    print("*** Example output ***")
+    # -------------------------------------------------
+    n = 23 # number of objects
+    k = 4  # RANSAC common k values are 3, 4, 5, 7, 8
+    m = 5  # how many "batch" permutation to return 
+    # -------------------------------------------------
     print(f'n={n}, k={k}, m={m}')
 
     # numpy
     #
-    start = time.time()
-    for t in range(it):
-        tmp = sampler_numpy(n,k,m)        
-    end = time.time()
-    print("The O(k^2) numpy implementation - Elapsed = %s s" % ((end - start)/t))    
-    # print(tmp)
+    print(f'-- Numpy --')
+    print(sampler_numpy(n,k,m))
+    # pytorch
+    # 
+    print("\n-- Pytorch --")
+    print(sampler_torch(n,k,m) )
 
+    print("\n***Running times***")
+    # --------------------------------------------------
+    n = 8000 # number of objects
+    k = 8    # RANSAC common k values are 3, 4, 5, 7, 8
+    m = 500  # how many "batch" permutation to return   
+    it = 50  # iteration to test  
+    # --------------------------------------------------
+    print(f'n={n}, k={k}, m={m}')
+
+    # numpy
     start = time.time()
     for t in range(it):
         tmp = np.zeros((m,k)).astype(int)
         for i in range(m):
             tmp[i] = np.random.choice(n, size=k, replace=False)         
     end = time.time()
-    print("Base O(n) numpy implementation - Elapsed = %s s" % ((end - start)/t))
+    print("- Base O(n) numpy implementation - Elapsed = %s s" % ((end - start)/t))
     # print(tmp)
 
-
-    # pytorch
-    #
     start = time.time()
     for t in range(it):
-        tmp = sampler_torch(n,k,m)        
+        tmp = sampler_numpy(n,k,m)        
     end = time.time()
-    print("The O(k^2) pytorch implementation - Elapsed = %s s" % ((end - start)/t))    
+    print("- This O(k^2) numpy implementation - Elapsed = %s s" % ((end - start)/t))    
     # print(tmp)
-    
+
+    # pytorch
     start = time.time()
     for t in range(it):
         tmp = torch.zeros((m,k), device=device, dtype=torch.long)
         for i in range(m):
             tmp[i] = torch.randperm(n)[:k].to(device)      
     end = time.time()
-    print("Base O(n) pytorch implementation - Elapsed = %s s" % ((end - start)/t))
+    print("- Base O(n) pytorch implementation - Elapsed = %s s" % ((end - start)/t))
+    # print(tmp)
+
+    start = time.time()
+    for t in range(it):
+        tmp = sampler_torch(n,k,m)        
+    end = time.time()
+    print("- This O(k^2) pytorch implementation - Elapsed = %s s" % ((end - start)/t))    
     # print(tmp)
