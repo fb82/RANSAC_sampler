@@ -5,7 +5,7 @@ This is a $O(k^2)$ implementation, faster than the base $O(n)$ when $k$ $<<$ $n$
 _Note: returned samples are ordered with the exception of the last element._
 
 
-Output example (just run `RANSAC_sampler.py `):
+Output example (just run `RANSAC_sampler.py`):
 ```
 *** Example output ***
 n=23, k=4, m=5
